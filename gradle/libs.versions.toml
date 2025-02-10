@@ -8,6 +8,7 @@ compose = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 compose-appcompact = "1.6.1"
+kotlinxCoroutinesCore = "1.6.1-native-mt"
 material = "1.6.10"
 materialIconsCore = "1.6.10"
 mokoMvvmVersion = "0.16.1"
@@ -31,6 +32,7 @@ compose-material-icons = { module = "androidx.compose.material:material-icons-co
 compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 compose-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "compose-appcompact" }
 
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 mokoMvvmCore = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoMvvmVersion" }
 mokoMvvmFlow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoMvvmVersion" }
 mokoMvvmLiveData = { module = "dev.icerock.moko:mvvm-livedata", version.ref = "mokoMvvmVersion" }

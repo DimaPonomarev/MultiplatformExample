@@ -24,15 +24,25 @@ kotlin {
         it.binaries.framework {
             baseName = "shared"
             isStatic = true
+
+            export(libs.mokoMvvmFlow)
+            export(libs.mokoMvvmCore)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
             //put your multiplatform dependencies here
+            api(libs.kotlinx.coroutines.core)
+
+            api(libs.mokoMvvmFlow)
+            api(libs.mokoMvvmCore)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        androidMain.dependencies {
+            api(libs.mokoMvvmFlowCompose)
         }
     }
 }
