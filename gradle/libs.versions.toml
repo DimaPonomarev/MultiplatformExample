@@ -1,23 +1,58 @@
 [versions]
-agp = "8.7.1"
+activityCompose = "1.4.0"
+agp = "8.3.1"
+appcompat = "1.4.1"
+composeVersion = "1.6.10"
 kotlin = "2.0.0"
 compose = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
+compose-appcompact = "1.6.1"
+material = "1.6.10"
+materialIconsCore = "1.6.10"
+mokoMvvmVersion = "0.16.1"
+jetbrainsKotlinJvm = "2.1.0"
+runtime = "1.6.10"
+ui = "1.6.10"
+uiTooling = "1.6.10"
+
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-material-icons = { module = "androidx.compose.material:material-icons-core", version.ref = "compose-material3" }
+compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
+compose-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "compose-appcompact" }
+
+mokoMvvmCore = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoMvvmVersion" }
+mokoMvvmFlow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoMvvmVersion" }
+mokoMvvmLiveData = { module = "dev.icerock.moko:mvvm-livedata", version.ref = "mokoMvvmVersion" }
+mokoMvvmLiveDataResources = { module = "dev.icerock.moko:mvvm-livedata-resources", version.ref = "mokoMvvmVersion" }
+mokoMvvmState = { module = "dev.icerock.moko:mvvm-state", version.ref = "mokoMvvmVersion" }
+mokoMvvmDataBinding = { module = "dev.icerock.moko:mvvm-databinding", version.ref = "mokoMvvmVersion" }
+mokoMvvmFlowResources = { module = "dev.icerock.moko:mvvm-flow-resources", version.ref = "mokoMvvmVersion" }
+mokoMvvmFlowCompose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mokoMvvmVersion" }
+mokoMvvmCompose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mokoMvvmVersion" }
+mokoMvvmLivaDataCompose = { module = "dev.icerock.moko:mvvm-livedata-compose", version.ref = "mokoMvvmVersion" }
+
+#mokoResources = { module = "dev.icerock.moko:resources", version.ref = "mokoResourcesVersion" }
+#mokoParcelize = { module = "dev.icerock.moko:parcelize", version.ref = "mokoParcelizeVersion" }
+#mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "mokoGraphicsVersion" }
+#mokoPermissions = { module = "dev.icerock.moko:permissions", version.ref = "mokoPermissionsVersion" }
+#mokoFieldsCore = { module = "dev.icerock.moko:fields-core", version.ref = "mokoFieldsVersion" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
