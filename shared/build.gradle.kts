@@ -27,12 +27,12 @@ kotlin {
 
             export(libs.mokoMvvmFlow)
             export(libs.mokoMvvmCore)
+
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
             api(libs.kotlinx.coroutines.core)
 
             api(libs.mokoMvvmFlow)

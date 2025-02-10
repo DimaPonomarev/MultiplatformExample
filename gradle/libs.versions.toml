@@ -1,6 +1,7 @@
 [versions]
 activityCompose = "1.4.0"
 agp = "8.3.1"
+animationCore = "1.7.7"
 appcompat = "1.4.1"
 composeVersion = "1.6.10"
 kotlin = "2.0.0"
@@ -9,6 +10,8 @@ compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 compose-appcompact = "1.6.1"
 kotlinxCoroutinesCore = "1.6.1-native-mt"
+lifecycleViewmodelCompose = "2.8.7"
+lifecycleViewmodelComposeVersion = "2.4.1"
 material = "1.6.10"
 materialIconsCore = "1.6.10"
 mokoMvvmVersion = "0.16.1"
@@ -19,6 +22,9 @@ uiTooling = "1.6.10"
 
 
 [libraries]
+androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "animationCore" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+androidx-lifecycle-viewmodel-compose-v241 = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelComposeVersion" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }

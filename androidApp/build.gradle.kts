@@ -57,6 +57,8 @@ dependencies {
     // Activity
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.appcompat)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.animation.core)
 
     debugImplementation(libs.compose.ui.tooling)
 }
