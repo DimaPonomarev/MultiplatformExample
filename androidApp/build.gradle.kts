@@ -42,17 +42,17 @@ android {
 }
 
 dependencies {
-    implementation(projects.shared)
+    implementation(project(":shared"))
 
-    implementation(libs.compose.foundation)
+    implementation(libs.composeFoundation)
     implementation(libs.compose.runtime)
     // UI
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.ui.tooling)
     // Material Design
-    implementation(libs.compose.material)
-    implementation(libs.compose.material3)
+    implementation(libs.composeMaterial)
+    implementation(libs.composeMaterial3)
     implementation(libs.compose.material.icons)
     // Activity
     implementation(libs.androidx.activity.compose)

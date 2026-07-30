@@ -1,10 +1,14 @@
 [versions]
+# needed by tmclibrary's own conventions build (JavaVersion.toVersion(libs.versions.java.get()))
+java = "17"
 activityCompose = "1.4.0"
 agp = "8.3.1"
 animationCore = "1.7.7"
 appcompat = "1.4.1"
-composeVersion = "1.6.10"
+composeVersion = "1.7.8"
 kotlin = "2.0.0"
+# tmclibrary's own modules were built/tested against this exact Kotlin version
+tmclibraryKotlinVersion = "2.0.20"
 compose = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
@@ -20,6 +24,50 @@ runtime = "1.6.10"
 ui = "1.6.10"
 uiTooling = "1.6.10"
 
+# below: needed so tmclibrary's own module build.gradle.kts files can resolve their
+# libs.xxx / plugin references via this project's root version catalog (they run as
+# regular subprojects of this same build, sharing this one catalog)
+accompanistPermissionsVersion = "0.37.3"
+coilComposeVersion = "3.2.0"
+sharedApiVersion = "1.0.19"
+kotlinxSerializationVersion = "1.7.3"
+kotlinxDateTimeVersion = "0.6.2"
+coroutinesVersion = "1.9.0"
+ktorClientVersion = "3.0.3"
+androidx-compose-bom = "2025.04.00"
+composeActivitylVersion = "1.9.3"
+composeMaterial3Version = "1.3.2"
+mokoGraphicsVersion = "0.10.0"
+mokoParcelizeVersion = "0.9.0"
+mokoResourcesVersion = "0.24.5"
+mokoNetworkVersion = "0.21.2"
+mokoPermissionsVersion = "0.18.0"
+multiplatformSettingsVersion = "1.2.0"
+napierVersion = "2.7.1"
+klockVersion = "3.4.0"
+atomicfuVersion = "0.25.0"
+realmVersion = "2.3.0"
+materialVersion = "1.12.0"
+lifecycleVersion = "2.8.7"
+threetenAbpVersion = "1.4.6"
+androidAppCompatVersion = "1.7.0"
+appMetricaVersion = "5.3.0"
+biometricVersion = "1.1.0"
+pagingVersion = "3.3.6"
+okHttpVersion = "4.12.0"
+inputMaskVersion = "6.1.0"
+tmclibVersion = "1.1.36"
+uiandroidVersion = "1.2.9"
+exifVersion = "1.4.2"
+mediaVersion3 = "1.9.0"
+glideVersion = "4.16.0"
+glideComposeVersion = "1.0.0-beta01"
+koinVersion = "4.0.4"
+koinComposeMultiplatform = "4.0.4"
+skieVersion = "0.9.0"
+coreKtxVersion = "1.10.1"
+cameraXVersion = "1.5.0-beta01"
+cameraCoreVersion = "1.4.2"
 
 [libraries]
 androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "animationCore" }
@@ -31,9 +79,6 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 compose-material-icons = { module = "androidx.compose.material:material-icons-core", version.ref = "compose-material3" }
 compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 compose-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "compose-appcompact" }
@@ -50,12 +95,77 @@ mokoMvvmFlowCompose = { module = "dev.icerock.moko:mvvm-flow-compose", version.r
 mokoMvvmCompose = { module = "dev.icerock.moko:mvvm-compose", version.ref = "mokoMvvmVersion" }
 mokoMvvmLivaDataCompose = { module = "dev.icerock.moko:mvvm-livedata-compose", version.ref = "mokoMvvmVersion" }
 
-#mokoResources = { module = "dev.icerock.moko:resources", version.ref = "mokoResourcesVersion" }
-#mokoParcelize = { module = "dev.icerock.moko:parcelize", version.ref = "mokoParcelizeVersion" }
-#mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "mokoGraphicsVersion" }
-#mokoPermissions = { module = "dev.icerock.moko:permissions", version.ref = "mokoPermissionsVersion" }
-#mokoFieldsCore = { module = "dev.icerock.moko:fields-core", version.ref = "mokoFieldsVersion" }
+# below: mirrored from tmcLibTester's own catalog, needed by tmclibrary's module build.gradle.kts files
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissionsVersion" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilComposeVersion" }
+coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilComposeVersion" }
+kotlinSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationVersion" }
+kotlinxDateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDateTimeVersion" }
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
+ktorClientCore = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientVersion" }
+ktorClientAuth = { module = "io.ktor:ktor-client-auth", version.ref = "ktorClientVersion" }
+ktorClientLogging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientVersion" }
+ktorClientIOS = { module = "io.ktor:ktor-client-ios", version.ref = "ktorClientVersion" }
+ktorClientAndroid = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientVersion" }
+mokoResources = { module = "dev.icerock.moko:resources", version.ref = "mokoResourcesVersion" }
+mokoParcelize = { module = "dev.icerock.moko:parcelize", version.ref = "mokoParcelizeVersion" }
+mokoGraphics = { module = "dev.icerock.moko:graphics", version.ref = "mokoGraphicsVersion" }
+mokoPermissions = { module = "dev.icerock.moko:permissions", version.ref = "mokoPermissionsVersion" }
+mokoNetwork = { module = "dev.icerock.moko:network", version.ref = "mokoNetworkVersion" }
+mokoNetworkEngine = { module = "dev.icerock.moko:network-engine", version.ref = "mokoNetworkVersion" }
+mokoNetworkErrors = { module = "dev.icerock.moko:network-errors", version.ref = "mokoNetworkVersion" }
+multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettingsVersion" }
+napier = { module = "io.github.aakira:napier", version.ref = "napierVersion" }
+klock = { module = "com.soywiz.korlibs.klock:klock", version.ref = "klockVersion" }
+atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfuVersion" }
+realm = { module = "io.realm.kotlin:library-base", version.ref = "realmVersion" }
+composeBom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
+composeActivity = { module = "androidx.activity:activity-compose", version.ref = "composeActivitylVersion"}
+composeTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeVersion" }
+composePreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeVersion" }
+composeFoundation = { module = "androidx.compose.foundation:foundation" }
+composeMaterial = { module = "androidx.compose.material:material" }
+composeMaterial3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3Version" }
+composeGlide = { module = "com.github.bumptech.glide:compose", version.ref = "glideComposeVersion"}
+appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidAppCompatVersion" }
+material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
+lifecycleViewModel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleVersion" }
+appMetrica = { module = "com.yandex.android:mobmetricalib", version.ref = "appMetricaVersion" }
+biometric = { module = "androidx.biometric:biometric", version.ref = "biometricVersion" }
+paging = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingVersion" }
+okHttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okHttpVersion" }
+inputMask = { module = "com.github.RedMadRobot:input-mask-android", version.ref = "inputMaskVersion" }
+threetenAbp = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "threetenAbpVersion" }
+tmclib = { module = "ru.europlan.mws.tmclibrary.tmclib:tmclib", version.ref = "tmclibVersion" }
+uiandroid = { module = "ru.europlan.ui.android.uilibrary:uiandroid", version.ref = "uiandroidVersion" }
+exif = { module = "androidx.exifinterface:exifinterface", version.ref = "exifVersion" }
+mediaExoPlayer3 = { module = "androidx.media3:media3-exoplayer", version.ref = "mediaVersion3" }
+mediaCompose3 = { module = "androidx.media3:media3-ui-compose", version.ref = "mediaVersion3" }
+mediaComposeMaterial3 = { module = "androidx.media3:media3-ui-compose-material3", version.ref = "mediaVersion3" }
+mediaSession3 = { module = "androidx.media3:media3-session", version.ref = "mediaVersion3" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinVersion" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinComposeMultiplatform" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeMultiplatform" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtxVersion" }
+sharedApi = { module = "ru.europlan.mws.api:shared-api", version.ref = "sharedApiVersion" }
+androidx-camera-compose = { module = "androidx.camera:camera-compose", version.ref = "cameraXVersion" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraXVersion" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraXVersion" }
+camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "cameraXVersion" }
+camera-video = { group = "androidx.camera", name = "camera-video", version.ref = "cameraXVersion" }
 
+# needed only so tmclibrary's own module build.gradle.kts files (kotlinx-serialization,
+# dev.icerock.mobile.multiplatform-network-generator, dev.icerock.mobile.multiplatform-resources,
+# io.realm.kotlin) can resolve their plugin ids via this project's root buildscript classpath
+gradleplugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+gradleplugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "tmclibraryKotlinVersion" }
+mokoResourcesGeneratorGradle = { module = "dev.icerock.moko:resources-generator", version.ref = "mokoResourcesVersion" }
+mokoNetworkGeneratorGradle = { module = "dev.icerock.moko:network-generator", version.ref = "mokoNetworkVersion" }
+kotlinSerializationGradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "tmclibraryKotlinVersion" }
+realmGradle = { module = "io.realm.kotlin:gradle-plugin", version.ref = "realmVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -64,3 +174,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+touchlab-skie = { id = "co.touchlab.skie", version.ref = "skieVersion" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
