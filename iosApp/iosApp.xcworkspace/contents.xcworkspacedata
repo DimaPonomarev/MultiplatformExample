@@ -4,4 +4,11 @@
    <FileRef
       location = "group:iosApp.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Features"
+      name = "Features">
+      <FileRef
+         location = "group:TMC/TMC.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

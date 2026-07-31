@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C81D6F669B7BB6D2FFCCEB3 /* EupUiKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7DA46CB0150947ADCBC2251C /* EupUiKit */; };
+		390029CD87CCA3EB33C93C76 /* TMC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F5FC8F9FB26293CDBE71A900 /* TMC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		414FA96098B4003591CE0B3D /* TuistBundle+IosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7677F06C0F68FDE4C5071F /* TuistBundle+IosApp.swift */; };
 		436BD06A57D3FE592C71F612 /* TuistAssets+IosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D695EB5EE0838D0F1122C0A /* TuistAssets+IosApp.swift */; };
 		672C961421715AE78D695B3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1843A80EEA2AFF5C002A11 /* ContentView.swift */; };
+		A58335F8B54AC77843A7278F /* TMC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FC8F9FB26293CDBE71A900 /* TMC.framework */; };
 		C08188E2582225A33738BE62 /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35556F7FAC0505C76195ED41 /* iOSApp.swift */; };
 		CD68DEB8FA86D43C7FE7AD76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A305CDDCD0AFBB7CCC1926AB /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -21,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				390029CD87CCA3EB33C93C76 /* TMC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +39,7 @@
 		5F1843A80EEA2AFF5C002A11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A305CDDCD0AFBB7CCC1926AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD7677F06C0F68FDE4C5071F /* TuistBundle+IosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+IosApp.swift"; sourceTree = "<group>"; };
+		F5FC8F9FB26293CDBE71A900 /* TMC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58335F8B54AC77843A7278F /* TMC.framework in Frameworks */,
+				1C81D6F669B7BB6D2FFCCEB3 /* EupUiKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				2463A61B9D26ECADCDEB4084 /* iosApp.app */,
+				F5FC8F9FB26293CDBE71A900 /* TMC.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
+				7DA46CB0150947ADCBC2251C /* EupUiKit */,
 			);
 			productName = iosApp;
 			productReference = 2463A61B9D26ECADCDEB4084 /* iosApp.app */;
@@ -423,6 +432,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7DA46CB0150947ADCBC2251C /* EupUiKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EupUiKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 242FB5348943441C388468CE /* Project object */;
 }

@@ -6,7 +6,7 @@ public extension Project {
         name: String,
         platform: Destinations = .iOS,
         product: Product = .framework,
-        sources: SourceFilesList = [Constants.featureSourcePath],
+        sources: SourceFilesList = ["\(Constants.featureSourcePath)"],
         scripts: [TargetScript] = [],
         dependencies: [TargetDependency] = [],
         packages: [Package] = [],
@@ -40,6 +40,12 @@ public extension Project {
         product: Product = .app,
         dependencies: [TargetDependency] = []
     ) -> Project {
+        // Needs to be a direct app dependency (not just transitive, via a feature module)
+        // so Xcode actually embeds SharedApi.framework (EupUiKit's binary target) into
+        // the app bundle - otherwise it links but isn't copied in, and the app crashes
+        // at launch with "Library not loaded: @rpath/SharedApi.framework/SharedApi".
+        var outsideDependencies = dependencies
+        outsideDependencies.append(.package(product: "EupUiKit"))
         return Project(
             name: name,
             settings: Settings.defaultProject,
@@ -60,7 +66,7 @@ public extension Project {
                             basedOnDependencyAnalysis: false
                         )
                     ],
-                    dependencies: dependencies,
+                    dependencies: outsideDependencies,
                     settings: Settings.appTarget
                 )
             ],
