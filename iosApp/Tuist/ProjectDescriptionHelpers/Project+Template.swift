@@ -6,6 +6,7 @@ public extension Project {
         name: String,
         platform: Destinations = .iOS,
         product: Product = .framework,
+        sources: SourceFilesList = [Constants.featureSourcePath],
         scripts: [TargetScript] = [],
         dependencies: [TargetDependency] = [],
         packages: [Package] = [],
@@ -23,7 +24,7 @@ public extension Project {
                     bundleId: Constants.bundleIdApp + "." + name.lowercased(),
                     deploymentTargets: .iOS(Constants.deploymentVersion),
                     infoPlist: .default,
-                    sources: ["\(Constants.featureSourcePath)"],
+                    sources: sources,
                     scripts: scripts,
                     dependencies: dependencies,
                     settings: settings ?? Settings.moduleTarget

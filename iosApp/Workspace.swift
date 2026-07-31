@@ -3,7 +3,5 @@ import ProjectDescriptionHelpers
 
 let workspace = Workspace(
     name: Constants.nameOfWorkspace,
-    projects: [
-        ".", // Main entry
-    ]
+    projects: Features.getFeatures()
 )

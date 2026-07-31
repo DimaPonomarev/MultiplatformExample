@@ -5,4 +5,9 @@ public enum Scripts {
     cd "$SRCROOT/.."
     ./gradlew :shared:embedAndSignAppleFrameworkForXcode
     """
+
+    public static let embedTmcLibFramework = """
+    cd "$SRCROOT/../../.."
+    ./gradlew :tmclibrary:tmclib:embedAndSignAppleFrameworkForXcode
+    """
 }
